@@ -19,31 +19,10 @@ body {
   z-index: 10;
 }
 
-.navbar .logo {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #e50914;
-  letter-spacing: 2px;
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1rem;
-  transition: color 0.3s;
-}
-
-.navbar ul li a:hover {
-  color: #e50914;
-}
+.navbar .logo { font-size: 2rem; font-weight: bold; color: #e50914; letter-spacing: 2px; }
+.navbar ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+.navbar ul li a { text-decoration: none; color: #fff; font-size: 1rem; transition: color 0.3s; }
+.navbar ul li a:hover { color: #e50914; }
 
 /* Hero Section */
 .hero {
@@ -56,58 +35,41 @@ body {
   margin-top: 70px;
 }
 
-.hero-text h1 {
-  font-size: 3rem;
-  color: #fff;
-  text-shadow: 0 0 20px black;
-}
-
-.hero-text p {
-  font-size: 1.2rem;
-  color: #ccc;
-  margin-top: 10px;
-}
+.hero-text h1 { font-size: 3rem; color: #fff; text-shadow: 0 0 20px black; }
+.hero-text p { font-size: 1.2rem; color: #ccc; margin-top: 10px; }
 
 /* Memory Section */
-.memory-section {
-  padding: 40px 30px;
-}
+.memory-section { padding: 40px 30px; }
+.memory-section h2 { margin-bottom: 15px; font-size: 1.5rem; color: #e5e5e5; }
 
-.memory-section h2 {
-  margin-bottom: 15px;
-  font-size: 1.5rem;
-  color: #e5e5e5;
-}
-
-.memory-row {
+.memory-grid {
   display: flex;
   gap: 10px;
+  flex-wrap: nowrap; /* horizontal layout */
   overflow-x: auto;
-  scroll-behavior: smooth;
   padding-bottom: 10px;
 }
 
+.memory-grid::-webkit-scrollbar { display: none; }
+
 .memory-card {
-  flex: 0 0 auto;
-  width: 300px;
-  height: 350px;
+  min-width: 300px;
   border-radius: 8px;
   overflow: hidden;
+  transition: transform 0.3s;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  flex: 0 0 auto; /* prevent shrink */
 }
 
 .memory-card img {
   width: 100%;
-  height: 100%;
+  height: 300px; /* fixed height */
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
   transition: transform 0.3s ease;
 }
 
-.memory-card img:hover {
-  transform: scale(1.05);
-}
+.memory-card img:hover { transform: scale(1.05); }
 
 /* Slideshow Modal */
 .modal {
@@ -119,6 +81,9 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.95);
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
 }
 
 #closeModal {
@@ -131,20 +96,21 @@ body {
 }
 
 .slideshow-container {
-  position: relative;
-  max-width: 800px;
-  margin: auto;
-  top: 100px;
+  display: inline-block;
+  height: 100%;
 }
 
 .slides {
-  display: none;
-  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  height: 80vh;
+  margin: 10px;
 }
 
 .slides img {
-  width: 100%;
+  height: 100%;
   border-radius: 10px;
+  display: block;
 }
 
 .prev, .next {
@@ -155,13 +121,11 @@ body {
   color: white;
   font-weight: bold;
   font-size: 28px;
-  transition: 0.3s;
+  transform: translateY(-50%);
   user-select: none;
+  z-index: 100;
 }
 
-.prev { left: 0; }
-.next { right: 0; }
-
-.prev:hover, .next:hover {
-  color: #e50914;
-}
+.prev { left: 10px; }
+.next { right: 10px; }
+.prev:hover, .next:hover { color: #e50914; }
