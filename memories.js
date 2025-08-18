@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
     slideshow3: [
       { img: "memory9.jpg" }, { img: "memory10.jpg" },
-      { img: "memory11.jpg" }, { img: "memory13.jpg" }
+      { img: "memory11.jpg" }, { img: "memory12.jpg" }
     ]
   };
 
