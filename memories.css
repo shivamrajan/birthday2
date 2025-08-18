@@ -91,7 +91,7 @@ body {
 }
 
 .memory-card {
-  min-width: 350px;
+  min-width: 300px;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s;
@@ -107,7 +107,7 @@ body {
 }
 
 .memory-card img {
-  width: 100%;
+  width: 80%;
   height: 300px; /* fixed height */
   object-fit: cover; /* crop to fit without stretching */
   border-radius: 10px;
