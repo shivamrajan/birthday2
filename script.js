@@ -1,8 +1,13 @@
 // === SHOOTING STARS ===
 const canvas = document.getElementById('starCanvas');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
 let shootingStars = [];
 function createShootingStar() {
@@ -106,52 +111,33 @@ document.addEventListener("click", (e) => {
         setTimeout(() => firework.remove(), 1100);
     }
 });
+
 // === LIFE TIMER ===
 function updateLifeTimer() {
-    // Replace with Garima's actual birthdate
-    const birthDate = new Date("1999-09-28T00:00:00"); 
-
+    const birthDate = new Date("1999-09-28T00:00:00");
     const now = new Date();
     const diff = now - birthDate;
-
-    // Calculate time parts
     const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
     const days = Math.floor((diff / (1000 * 60 * 60 * 24)) % 365.25);
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     const seconds = Math.floor((diff / 1000) % 60);
-
     document.getElementById("timer-count").textContent =
         `${years}y ${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
-
 setInterval(updateLifeTimer, 1000);
 updateLifeTimer();
-// === FLOATING WISHES ===
-const wishes = [
-    "🎂 Happy Birthday!", 
-    "🌸 Stay Blessed!", 
-    "💐 Lots of Love!", 
-    "🎉 Enjoy Your Day!", 
-    "🥳 Cheers to You!",
-    "🌹 Keep Smiling!"
-];
 
+// === FLOATING WISHES ===
+const wishes = ["🎂 Happy Birthday!","🌸 Stay Blessed!","💐 Lots of Love!","🎉 Enjoy Your Day!","🥳 Cheers to You!","🌹 Keep Smiling!"];
 document.addEventListener("click", (e) => {
     const wishText = wishes[Math.floor(Math.random() * wishes.length)];
     const wishEl = document.createElement("div");
     wishEl.className = "wish";
     wishEl.textContent = wishText;
-
-    // Random colors
     wishEl.style.color = `hsl(${Math.random() * 360}, 80%, 65%)`;
-
-    // Position where user clicked
     wishEl.style.left = e.clientX + "px";
     wishEl.style.top = e.clientY + "px";
-
     document.getElementById("wish-container").appendChild(wishEl);
-
-    // Remove after animation
     setTimeout(() => wishEl.remove(), 3000);
 });
