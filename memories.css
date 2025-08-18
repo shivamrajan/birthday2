@@ -63,7 +63,7 @@ body {
 
 .memory-card img {
   width: 100%;
-  height: 330px; /* fixed height */
+  height: 400px; /* fixed height */
   object-fit: cover;
   object-position:top;
   border-radius: 10px;
