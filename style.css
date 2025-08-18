@@ -1,0 +1,229 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background Gradient */
+body {
+    background: linear-gradient(270deg, #000428, #004e92, #1a2a6c, #fdbb2d);
+    background-size: 800% 800%;
+    animation: gradientMove 20s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Shooting Stars Canvas */
+#starCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+}
+
+/* Balloons */
+#balloons {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+.balloon {
+    position: absolute;
+    bottom: -150px;
+    width: 40px;
+    height: 55px;
+    border-radius: 50%;
+    animation: floatUp 12s linear infinite;
+}
+.balloon::after {
+    content: "";
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    width: 2px;
+    height: 60px;
+    background: #fff;
+}
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-120vh) scale(1.1); opacity: 0; }
+}
+
+/* Gift Box */
+#gift-box {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    z-index: 3;
+}
+#gift-box .box {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff4d4d, #cc0000);
+    border-radius: 10px;
+    position: relative;
+}
+#gift-box .lid {
+    width: 120px;
+    height: 30px;
+    background: #b30000;
+    position: absolute;
+    top: -30px;
+    border-radius: 6px;
+    transition: transform 0.6s ease;
+}
+#gift-box .ribbon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 20px;
+    height: 100%;
+    background: gold;
+    transform: translateX(-50%);
+}
+
+/* Gift Opened */
+#gift-box.open .lid {
+    transform: rotate(-40deg) translate(-30px, -40px);
+}
+#gift-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255,255,255,0.2);
+    padding: 30px 50px;
+    border-radius: 15px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    animation: popIn 0.8s ease forwards;
+    z-index: 5;
+    text-align: center;
+}
+@keyframes popIn {
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Birthday Message */
+#message-box {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: bold;
+    color: gold;
+    text-shadow: 0 0 15px white, 0 0 30px gold, 0 0 50px orange;
+    opacity: 0;
+    animation: fadeIn 3s ease-in-out forwards, glowPulse 2s infinite alternate;
+    animation-delay: 4s;
+    cursor: pointer;
+    z-index: 2;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+@keyframes glowPulse {
+    from { text-shadow: 0 0 15px white, 0 0 30px gold; }
+    to { text-shadow: 0 0 25px gold, 0 0 50px white; }
+}
+
+/* Life Timer */
+#life-timer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 14px 20px;
+    border-radius: 15px;
+    font-size: 18px;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    animation: floaty 6s ease-in-out infinite;
+    text-align: center;
+    z-index: 2;
+}
+#life-timer strong {
+    display: block;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #ffccff;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+#life-timer span {
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@keyframes floaty {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+}
+/* Floating wishes */
+#wish-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.wish {
+    position: absolute;
+    font-size: 22px;
+    font-weight: bold;
+    animation: floatUp 3s ease forwards;
+    opacity: 0.9;
+    user-select: none;
+    white-space: nowrap;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-80px) scale(1.1); opacity: 0.9; }
+    100% { transform: translateY(-150px) scale(0.8); opacity: 0; }
+}
+#memories-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: linear-gradient(90deg, #ff4d4d, #ff66ff);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+#memories-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255,255,255,0.9);
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memories with Garima</title>
+  <link rel="stylesheet" href="memories.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">GAMAFlix</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Memories</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Some Garima Flex</h1>
+      <p>Special moments, forever cherished ❤️</p>
+    </div>
+  </header>
+
+  <!-- Memory Gallery Rows -->
+  <section class="memory-section">
+    <h2>College Days 🎓</h2>
+    <div class="memory-row">
+      <div class="memory-card" data-slideshow="slideshow1">
+        <img src="images/memory1.jpg" alt="Memory 1">
+      </div>
+      <div class="memory-card" data-slideshow="slideshow1">
+        <img src="images/memory1b.jpg" alt="Memory 1b">
+      </div>
+    </div>
+  </section>
+
+  <section class="memory-section">
+    <h2>Trips Together ✈️</h2>
+    <div class="memory-row">
+      <div class="memory-card" data-slideshow="slideshow2">
+        <img src="images/memory2.jpg" alt="Memory 2">
+      </div>
+      <div class="memory-card" data-slideshow="slideshow2">
+        <img src="images/memory2b.jpg" alt="Memory 2b">
+      </div>
+    </div>
+  </section>
+
+  <section class="memory-section">
+    <h2>Birthday Bash 🎂</h2>
+    <div class="memory-row">
+      <div class="memory-card" data-slideshow="slideshow3">
+        <img src="images/memory3.jpg" alt="Memory 3">
+      </div>
+      <div class="memory-card" data-slideshow="slideshow3">
+        <img src="images/memory3b.jpg" alt="Memory 3b">
+      </div>
+    </div>
+  </section>
+
+  <!-- Slideshow Modal -->
+  <div id="slideshowModal" class="modal">
+    <span id="closeModal">&times;</span>
+    <div class="slideshow-container">
+      <div class="slides" id="slideshowContent"></div>
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
+    </div>
+  </div>
+
+  <script src="memories.js"></script>
+    <button onclick="window.location.href='memories.html'">View Memories</button>
+</body>
+</html>

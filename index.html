@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday Garima</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <script>
+      // Prevent opening index.html directly
+      if(!sessionStorage.getItem("introSeen")) {
+        window.location.href = "intro.html";
+      }
+    </script>
+    <!-- Shooting star canvas -->
+    <canvas id="starCanvas"></canvas>
+
+    <!-- Balloons container -->
+    <div id="balloons"></div>
+
+    <!-- Gift box -->
+    <div id="gift-box">
+        <div class="lid"></div>
+        <div class="box"></div>
+        <div class="ribbon"></div>
+    </div>
+
+    <!-- Main Birthday Message -->
+    <div id="message-box">🎈Happy Birthday Garima🎈</div>
+
+    <!-- Life Timer -->
+    <div id="life-timer">
+        <strong>Sassy Since</strong>
+        <span id="timer-count">0</span>
+    </div>
+    <div id="wish-container"></div>
+    <script src="script.js"></script>
+    <a href="memories.html" id="memories-btn">🎬 Memories</a>
+</body>
+</html>
