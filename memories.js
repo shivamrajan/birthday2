@@ -10,16 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // Memory data (replace with your real images)
   const memoryData = {
     slideshow1: [
-      { img: "images/memory1.jpg" },
-      { img: "images/memory1b.jpg" }
+      { img: "memory1.jpg" },
+      { img: "memory2.jpg" }
+      { img: "memory3.jpg" },
+      { img: "memory4.jpg" }
     ],
     slideshow2: [
-      { img: "images/memory2.jpg" },
-      { img: "images/memory2b.jpg" }
+    { img: "memory5.jpg" },
+      { img: "memory6.jpg" }
+      { img: "memory7.jpg" },
+      { img: "memory8.jpg" }
     ],
     slideshow3: [
-      { img: "images/memory3.jpg" },
-      { img: "images/memory3b.jpg" }
+      { img: "memory9.jpg" },
+      { img: "memory10.jpg" }
+      { img: "memory11.jpg" },
+      { img: "memory12.jpg" }
     ]
   };
 
