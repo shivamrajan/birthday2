@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Memories with Garima</title>
+  <title>The Sweet Saasy Memories of Garima</title>
   <link rel="stylesheet" href="memories.css">
 </head>
 <body>
@@ -23,10 +23,10 @@
     </div>
   </header>
 
-  <!-- Memory Sections -->
+  <!-- Memory Gallery -->
   <section class="memory-section">
     <h2>The Sanskaari Naari ❤️</h2>
-    <div class="memory-row">
+    <div class="memory-grid">
       <div class="memory-card" data-slideshow="slideshow1"><img src="memory1.jpg" alt=""></div>
       <div class="memory-card" data-slideshow="slideshow1"><img src="memory2.jpg" alt=""></div>
       <div class="memory-card" data-slideshow="slideshow1"><img src="memory3.jpg" alt=""></div>
@@ -36,7 +36,7 @@
 
   <section class="memory-section">
     <h2>Family 👨🏻‍👩🏻‍👧🏻‍👦🏻❤️</h2>
-    <div class="memory-row">
+    <div class="memory-grid">
       <div class="memory-card" data-slideshow="slideshow2"><img src="memory5.jpg" alt=""></div>
       <div class="memory-card" data-slideshow="slideshow2"><img src="memory6.jpg" alt=""></div>
       <div class="memory-card" data-slideshow="slideshow2"><img src="memory7.jpg" alt=""></div>
@@ -46,7 +46,7 @@
 
   <section class="memory-section">
     <h2>Sassy Girl ❤️</h2>
-    <div class="memory-row">
+    <div class="memory-grid">
       <div class="memory-card" data-slideshow="slideshow3"><img src="memory9.jpg" alt=""></div>
       <div class="memory-card" data-slideshow="slideshow3"><img src="memory10.jpg" alt=""></div>
       <div class="memory-card" data-slideshow="slideshow3"><img src="memory11.jpg" alt=""></div>
@@ -57,11 +57,9 @@
   <!-- Slideshow Modal -->
   <div id="slideshowModal" class="modal">
     <span id="closeModal">&times;</span>
-    <div class="slideshow-container">
-      <div class="slides" id="slideshowContent"></div>
-      <a class="prev">&#10094;</a>
-      <a class="next">&#10095;</a>
-    </div>
+    <div class="slideshow-container" id="slideshowContent"></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
   </div>
 
   <script src="memories.js"></script>
