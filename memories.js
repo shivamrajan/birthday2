@@ -7,29 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let slides = [];
   let autoPlayInterval;
 
-  // Memory data (replace with your real images)
   const memoryData = {
-    slideshow1: [
-      { img: "memory1.jpg" },
-      { img: "memory2.jpg" }
-      { img: "memory3.jpg" },
-      { img: "memory4.jpg" }
-    ],
-    slideshow2: [
-    { img: "memory5.jpg" },
-      { img: "memory6.jpg" }
-      { img: "memory7.jpg" },
-      { img: "memory8.jpg" }
-    ],
-    slideshow3: [
-      { img: "memory9.jpg" },
-      { img: "memory10.jpg" }
-      { img: "memory11.jpg" },
-      { img: "memory12.jpg" }
-    ]
+    slideshow1: [{ img: "memory1.jpg" }, { img: "memory2.jpg" }, { img: "memory3.jpg" }, { img: "memory4.jpg" }],
+    slideshow2: [{ img: "memory5.jpg" }, { img: "memory6.jpg" }, { img: "memory7.jpg" }, { img: "memory8.jpg" }],
+    slideshow3: [{ img: "memory9.jpg" }, { img: "memory10.jpg" }, { img: "memory11.jpg" }, { img: "memory12.jpg" }]
   };
 
-  // Open slideshow when clicking card
+  // Open slideshow
   cards.forEach(card => {
     card.addEventListener("click", () => {
       const slideshowId = card.getAttribute("data-slideshow");
@@ -52,11 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
     slideIndex = 0;
     showSlide(slideIndex);
 
-    // Start autoplay
     autoPlayInterval = setInterval(() => {
       slideIndex++;
       showSlide(slideIndex);
-    }, 3000); // change every 3s
+    }, 3000);
   }
 
   function showSlide(n) {
@@ -80,6 +63,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   closeModal.addEventListener("click", () => {
     modal.style.display = "none";
-    clearInterval(autoPlayInterval); // stop autoplay when closing
+    clearInterval(autoPlayInterval);
+  });
+
+  // === Auto-scroll memory rows horizontally ===
+  const memoryRows = document.querySelectorAll(".memory-row");
+  memoryRows.forEach(row => {
+    let scrollAmount = 1;
+    function autoScroll() {
+      row.scrollLeft += scrollAmount;
+      if (row.scrollLeft >= row.scrollWidth - row.clientWidth) row.scrollLeft = 0;
+      requestAnimationFrame(autoScroll);
+    }
+    autoScroll();
   });
 });
