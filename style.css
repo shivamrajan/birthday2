@@ -8,7 +8,7 @@ html, body {
 
 /* Background Gradient */
 body {
-    background: linear-gradient(270deg, #000428, #004e92, #1a2a6c, #fdbb2d);
+    background: linear-gradient(270deg, #0d0d2b, #1a0033, #1a2a6c, #004e92);
     background-size: 800% 800%;
     animation: gradientMove 20s ease infinite;
 }
@@ -106,21 +106,20 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.15);
     backdrop-filter: blur(15px);
-    border: 2px solid rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.25);
     padding: 30px 50px;
-    border-radius: 15px;
+    border-radius: 20px;
     color: white;
-    font-size: 24px;
+    font-size: clamp(18px, 2.5vw, 28px);
     font-weight: bold;
     animation: popIn 0.8s ease forwards;
     z-index: 5;
     text-align: center;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
 }
-@keyframes popIn {
-    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-}
+@keyframes popIn { to { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
 
 /* Birthday Message */
 #message-box {
@@ -139,91 +138,60 @@ body {
     z-index: 2;
 }
 
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-@keyframes glowPulse {
-    from { text-shadow: 0 0 15px white, 0 0 30px gold; }
-    to { text-shadow: 0 0 25px gold, 0 0 50px white; }
-}
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes glowPulse { from { text-shadow: 0 0 15px white, 0 0 30px gold; } to { text-shadow: 0 0 25px gold, 0 0 50px white; } }
 
-/* Life Timer */
+/* Life Timer - Glass Card */
 #life-timer {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(255, 255, 255, 0.08);
-    padding: 14px 20px;
-    border-radius: 15px;
-    font-size: 18px;
+    background: rgba(255, 255, 255, 0.12);
+    padding: clamp(10px,2vw,16px) clamp(14px,3vw,20px);
+    border-radius: 20px;
+    font-size: clamp(14px,2vw,18px);
     color: #fff;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255,255,255,0.25);
     animation: floaty 6s ease-in-out infinite;
     text-align: center;
     z-index: 2;
 }
-#life-timer strong {
-    display: block;
-    font-size: 14px;
-    letter-spacing: 1px;
-    color: #ffccff;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-}
-#life-timer span {
-    font-weight: bold;
-    background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-@keyframes floaty {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-4px); }
-}
+#life-timer strong { display: block; font-size: clamp(10px,1.5vw,14px); letter-spacing: 1px; color: #ffccff; text-transform: uppercase; margin-bottom: 4px; }
+#life-timer span { font-weight: bold; background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
 /* Floating wishes */
-#wish-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 999;
-}
+#wish-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; }
+.wish { position: absolute; font-size: clamp(16px,2.5vw,22px); font-weight: bold; animation: floatUp 3s ease forwards; opacity: 0.9; user-select: none; white-space: nowrap; }
 
-.wish {
-    position: absolute;
-    font-size: 22px;
-    font-weight: bold;
-    animation: floatUp 3s ease forwards;
-    opacity: 0.9;
-    user-select: none;
-    white-space: nowrap;
-}
+@keyframes floatUp { 0% { transform: translateY(0) scale(1); opacity:1; } 50% { transform: translateY(-80px) scale(1.1); opacity:0.9; } 100% { transform: translateY(-150px) scale(0.8); opacity:0; } }
 
-@keyframes floatUp {
-    0% { transform: translateY(0) scale(1); opacity: 1; }
-    50% { transform: translateY(-80px) scale(1.1); opacity: 0.9; }
-    100% { transform: translateY(-150px) scale(0.8); opacity: 0; }
-}
+/* Memories Button - Glass Card */
+/* Memories Button - Netflix Style */
 #memories-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: linear-gradient(90deg, #ff4d4d, #ff66ff);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 30px;
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 0 15px rgba(255,255,255,0.6);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-  z-index: 1000;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(20, 20, 20, 0.7); /* dark glassy background */
+    backdrop-filter: blur(8px);
+    color: #ff3b3f; /* Netflix red accent */
+    padding: clamp(12px, 2vw, 16px) clamp(20px, 3vw, 24px);
+    border-radius: 50px;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(255, 59, 63, 0.5);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    letter-spacing: 1px;
 }
+
 #memories-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px rgba(255,255,255,0.9);
+    transform: scale(1.05);
+    box-shadow: 0 8px 40px rgba(255, 59, 63, 0.7);
+    color: #fff;
+    background: rgba(30, 30, 30, 0.85);
 }
+/* Animations */
+@keyframes floaty { 0%,100%{transform:translateY(0px);} 50%{transform:translateY(-4px);} }
