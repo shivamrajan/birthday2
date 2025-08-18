@@ -1,7 +1,8 @@
 body {
   margin: 0;
   overflow: hidden;
-  background: linear-gradient(180deg, #0d0d2b, #1a0033); /* night sky base */
+  background: linear-gradient(180deg, #0d0d2b, #1a0033);
+  font-family: "Arial", sans-serif;
 }
 
 /* Background canvas */
@@ -17,21 +18,76 @@ body {
 /* Counter */
 #counter {
   position: absolute;
-  top: 20px;
+  top: 2%;
   left: 50%;
   transform: translateX(-50%);
-  padding: 10px 20px;
+  padding: clamp(8px, 2vw, 16px) clamp(16px, 4vw, 32px);
   border-radius: 15px;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.15);
   color: white;
-  font-size: 22px;
-  font-family: "Arial", sans-serif;
+  font-size: clamp(16px, 2.5vw, 28px);
   font-weight: bold;
   animation: rainbowText 3s linear infinite, pulse 1s ease-in-out;
   z-index: 10;
+  text-align: center;
 }
 
+/* Wheel container */
+#wheelContainer {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  z-index: 10;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#wheelContainer.show {
+  display: flex;
+  animation: wheelBounceIn 1s ease;
+}
+
+/* Spin button */
+#spinButton {
+  margin-top: 20px;
+  padding: clamp(10px, 2vw, 20px) clamp(20px, 4vw, 30px);
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff00cc, #3333ff);
+  color: white;
+  transition: box-shadow 0.3s ease;
+  z-index: 20;
+}
+
+#spinButton:hover {
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+}
+
+/* Spin Wheel Canvas */
+#wheelCanvas {
+  width: 80vw;
+  max-width: 400px;
+  height: auto;
+}
+
+/* Winning Display */
+#winningDisplay {
+  margin-top: 20px;
+  font-size: clamp(18px, 2.5vw, 28px);
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ff0, 0 0 20px #f0f;
+  animation: fadeIn 1s ease-in-out;
+  text-align: center;
+}
+
+/* Animations */
 @keyframes rainbowText {
   0% { color: #ff4d4d; }
   25% { color: #ffcc00; }
@@ -45,57 +101,11 @@ body {
   50% { transform: translateX(-50%) scale(1.1); }
 }
 
-/* Wheel container */
-#wheelContainer {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-  animation: none;
-  z-index: 10;
-}
-
-#wheelContainer.show {
-  display: flex;
-  animation: wheelBounceIn 1s ease;
-}
-
 @keyframes wheelBounceIn {
   0% { transform: scale(0.3); opacity: 0; }
   60% { transform: scale(1.2); opacity: 1; }
   80% { transform: scale(0.9); }
   100% { transform: scale(1); }
-}
-
-/* Spin button */
-#spinButton {
-  margin-top: 20px;
-  padding: 12px 24px;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  background: linear-gradient(45deg, #ff00cc, #3333ff);
-  color: white;
-  transition: box-shadow 0.3s ease;
-  position: relative;
-  z-index: 20;
-}
-
-#spinButton:hover {
-  box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
-}
-
-/* Winning Display */
-#winningDisplay {
-  margin-top: 20px;
-  font-size: 24px;
-  color: #fff;
-  font-weight: bold;
-  text-shadow: 0 0 10px #ff0, 0 0 20px #f0f;
-  animation: fadeIn 1s ease-in-out;
 }
 
 @keyframes fadeIn {
