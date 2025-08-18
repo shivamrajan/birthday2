@@ -53,7 +53,7 @@ body {
 .memory-grid::-webkit-scrollbar { display: none; }
 
 .memory-card {
-  min-width: 300px;
+  min-width: 280px;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s;
@@ -62,8 +62,8 @@ body {
 }
 
 .memory-card img {
-  width: 100%;
-  height: 400px; /* fixed height */
+  width: 90%;
+  height: 600px; /* fixed height */
   object-fit: cover;
   object-position:top;
   border-radius: 10px;
