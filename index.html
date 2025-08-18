@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <title>Happy Birthday Garima</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-      <script>
+    <script>
       // Prevent opening index.html directly
       if(!sessionStorage.getItem("introSeen")) {
         window.location.href = "intro.html";
       }
     </script>
+
     <!-- Shooting star canvas -->
     <canvas id="starCanvas"></canvas>
 
@@ -33,8 +35,14 @@
         <strong>Sassy Since</strong>
         <span id="timer-count">0</span>
     </div>
+
+    <!-- Floating Wishes -->
     <div id="wish-container"></div>
-    <script src="script.js"></script>
+
+    <!-- Memories Button -->
     <a href="memories.html" id="memories-btn">🎬 Memories</a>
+
+    <script src="script.js"></script>
+    <script src="screen.js"></script>
 </body>
 </html>
