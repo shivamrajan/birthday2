@@ -141,3 +141,21 @@ document.addEventListener("click", (e) => {
     document.getElementById("wish-container").appendChild(wishEl);
     setTimeout(() => wishEl.remove(), 3000);
 });
+
+// === NETFLIX SOUND ON MEMORIES BUTTON ===
+const memoriesBtn = document.getElementById("memories-btn");
+const netflixSound = document.getElementById("netflixSound");
+
+if (memoriesBtn && netflixSound) {
+    memoriesBtn.addEventListener("click", (e) => {
+        e.preventDefault(); // stop instant navigation
+        netflixSound.currentTime = 0;
+        netflixSound.play().catch(err => console.log("Sound blocked:", err));
+
+        // navigate only after sound finishes (or 2.5s fallback)
+        const delay = netflixSound.duration ? netflixSound.duration * 1000 : 2500;
+        setTimeout(() => {
+            window.location.href = "memories.html";
+        }, delay);
+    });
+}
